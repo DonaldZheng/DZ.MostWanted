@@ -13,6 +13,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
+      searchResults = searchByTrait(people);
       break;
       default:
     app(people); // restart app
@@ -20,7 +21,12 @@ function app(people){
   }
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
+  if (searchResults)
   mainMenu(searchResults, people);
+}
+
+function searchByTrait(people){
+    let trait = promptFor("")
 }
 
 // Menu function to call once you find who you are looking for
@@ -70,6 +76,25 @@ function searchByName(people){
   // TODO: find the person using the name they entered
   return foundPerson;
 }
+
+// //function searchByCriteria(){
+//     let criteria = promptFor("What Criteria are you searching for?: 'gender', 'eyecolor', 'height', 'weight', 'occupation'")
+
+//     switch (criteria){
+//         case "gender":
+//     }
+// }
+
+//search by gender
+function searchByGender(people){
+    let gender = promptFor("Please enter 'male' or 'female'", chars);
+    let foundPerson = people.filter(person => {
+        if(person.gender === gender){
+            return true;
+    } else {
+        return false;
+    }
+})
 
 // alerts a list of people
 function displayPeople(people){
