@@ -95,6 +95,7 @@ function searchByGender(people){
         return false;
     }
 })
+}
 
 // alerts a list of people
 function displayPeople(people){
