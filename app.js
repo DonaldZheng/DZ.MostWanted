@@ -12,7 +12,7 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
+      // TODO: search by traits//Criteria 
       searchResults = searchByTrait(people);
       break;
       default:
@@ -87,7 +87,7 @@ function searchByName(people){
 
 //search by gender
 function searchByGender(people){
-    let gender = promptFor("Please enter 'male' or 'female'", chars);
+    let gender = promptFor("Please enter 'male' or 'female'", chars).toLowerCase;
     let foundPerson = people.filter(person => {
         if(person.gender === gender){
             return true;
@@ -95,6 +95,31 @@ function searchByGender(people){
         return false;
     }
 })
+return foundPerson;
+}
+
+function searchByEyeColor(people){
+    let eyeColor = promptFor("Please enter 'hazel', 'brown' 'black', 'blue', 'green'", chars).toLowerCase;
+    let foundPerson = people.fileter( person => {
+        if (person.eyeColor === eyeColor){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    return foundPerson;
+}
+
+function searchByHeight(){
+
+}
+
+function searchByWeight(){
+
+}
+
+function searchByOccupation(){
+
 }
 
 // alerts a list of people
