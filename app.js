@@ -102,6 +102,8 @@ function searchByCriteria(){
         break;
         case "quit":
         return; // stop execution
+        default:
+        return mainMenu(person, people); // ask again
     }
  }
 
