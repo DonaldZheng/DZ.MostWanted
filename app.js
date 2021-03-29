@@ -74,26 +74,26 @@ function searchByName(people){
 }
 
 function searchByCriteria(people){
-    let criteria = promptFor("What criteria are you searching for?: gender, eyecolor, height, weight, occupation",chars);
+    let criteria = promptFor("What criteria are you searching for?: gender, eyecolor, height, weight, occupation", chars);
    switch (criteria){
         case "gender":
-            criteriaFound = searchByGender(people);
+            var criteriaFound = searchByGender(people);
             displayPeople(criteriaFound);
             break;
         case "eyecolor":
-            criteriaFound = searchByEyeColor(people);
+            var criteriaFound = searchByEyeColor(people);
             displayPeople(criteriaFound);
             break;
         case "height":
-            criteriaFound = searchByHeight(people);
+             var criteriaFound = searchByHeight(people);
             displayPeople(criteriaFound);
             break;
         case "weight":
-            criteriaFound = searchByWeight(people);
+            var criteriaFound = searchByWeight(people);
             displayPeople(criteriaFound);
             break;
         case "occupation":
-            criteriaFound =searchByOccupation(people);
+            var criteriaFound = searchByOccupation(people);
             displayPeople(criteriaFound);
             break;
         case "restart":
@@ -101,14 +101,12 @@ function searchByCriteria(people){
         break;
         case "quit":
         return; // stop execution
-        default:
-        return mainMenu(person, people); // ask again
     }
  }
 
 //search by gender
 function searchByGender(people){
-    let gender = promptFor("Please enter male or female: ", chars).toLowerCase;
+    let gender = promptFor("Please enter male or female: ", chars).toLowerCase();
     let foundPerson = people.filter(person => {
         if(person.gender === gender){
             return true;
@@ -116,11 +114,11 @@ function searchByGender(people){
         return false;
     }
 })
-return foundPerson[0];
+return foundPerson;
 }
 
 function searchByEyeColor(people){
-    let eyeColor = promptFor("Please enter hazel, brown, black, blue, green for eyecolor: ", chars).toLowerCase;
+    let eyeColor = promptFor("Please enter hazel, brown, black, blue, green for eyecolor: ", chars).toLowerCase();
     let foundPerson = people.filter( person => {
         if (person.eyeColor === eyeColor){
             return true;
@@ -128,11 +126,11 @@ function searchByEyeColor(people){
             return false;
         }
     })
-    return foundPerson[0];
+    return foundPerson;
 }
 
 function searchByHeight(people){ // get function to work 
-    let height = promptFor ("Please enter the height of the individual you are looking for: ", chars).toLowerCase;
+    let height = promptFor ("Please enter the height of the individual you are looking for: ", chars).toLowerCase();
     let foundPerson = people.filter( person => {
         if (person.height === height){
             return true;
@@ -140,11 +138,11 @@ function searchByHeight(people){ // get function to work
             return false;
         }
     })
-    return foundPerson[0];
+    return foundPerson;
 }
 
 function searchByWeight(people){ // get function to work
-    let weight = promptFor ("Please enter the weight of the individual you are looking for: ",chars).toLowerCase
+    let weight = promptFor ("Please enter the weight of the individual you are looking for: ",chars).toLowerCase();
     let foundPerson = people.filter( person => {
         if (person.weight === weight){
             return true;  
@@ -152,11 +150,11 @@ function searchByWeight(people){ // get function to work
             return false;
         }
     })
-    return foundPerson[0];
+    return foundPerson;
 }
 
 function searchByOccupation(people){
-    let occupation = promptFor ("Please enter the individual occupation you are looking for: ", chars).toLowerCase
+    let occupation = promptFor ("Please enter the individual occupation you are looking for: ", chars).toLowerCase();
     let foundPerson = people.filter ( person => { 
         if (person.occupation === occupation){
             return true;
@@ -164,7 +162,7 @@ function searchByOccupation(people){
             return false;
         }
     })
-    return foundPerson[0];
+    return foundPerson;
 }
 
 // alerts a list of people
