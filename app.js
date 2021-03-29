@@ -107,7 +107,7 @@ function searchByCriteria(){
 
 //search by gender
 function searchByGender(people){
-    let gender = promptFor("Please enter male or female", chars).toLowerCase;
+    let gender = promptFor("Please enter male or female: ", chars).toLowerCase;
     let foundPerson = people.filter(person => {
         if(person.gender === gender){
             return true;
@@ -119,7 +119,7 @@ return foundPerson[0];
 }
 
 function searchByEyeColor(people){
-    let eyeColor = promptFor("Please enter hazel, brown black, blue, green", chars).toLowerCase;
+    let eyeColor = promptFor("Please enter hazel, brown black, blue, green for eyecolor: ", chars).toLowerCase;
     let foundPerson = people.filter( person => {
         if (person.eyeColor === eyeColor){
             return true;
@@ -144,18 +144,26 @@ function searchByHeight(){ // get function to work
 
 function searchByWeight(){ // get function to work
     let weight = promptFor ("Please enter the weight of the individual you are looking for: ",chars).toLowerCase
-    let foundPerson = people.filter(person => {
-        if(person.weight === weight){
-        return true;  
+    let foundPerson = people.filter( person => {
+        if (person.weight === weight){
+            return true;  
         } else {
             return false;
         }
     })
-return foundPerson[0];
+    return foundPerson[0];
 }
 
 function searchByOccupation(){
-
+    let occupation = promptFor ("Please enter the individual occupation you are looking for: ", chars).toLowerCase
+    let foundPerson = people.filter ( person => { 
+        if (person.occupation === occupation){
+            return true;
+        }else{
+            return false;
+        }
+    })
+    return foundPerson[0];
 }
 
 // alerts a list of people
