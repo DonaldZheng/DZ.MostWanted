@@ -132,7 +132,7 @@ function searchByEyeColor(people){
 function searchByHeight(people){ // get function to work 
     let height = promptFor ("Please enter the height of the individual you are looking for: ", chars).toLowerCase();
     let foundPerson = people.filter( person => {
-        if (person.height === height){
+        if (person.height == height){
             return true;
         } else {
             return false;
@@ -144,7 +144,7 @@ function searchByHeight(people){ // get function to work
 function searchByWeight(people){ // get function to work
     let weight = promptFor ("Please enter the weight of the individual you are looking for: ",chars).toLowerCase();
     let foundPerson = people.filter( person => {
-        if (person.weight === weight){
+        if (person.weight == weight){
             return true;  
         } else {
             return false;
