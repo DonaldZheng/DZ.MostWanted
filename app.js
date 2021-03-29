@@ -41,8 +41,8 @@ function mainMenu(person, people){
     case "info": // TODO: get person's info
     displayPerson(person);
     break;
-    case "family":
-    // TODO: get person's family
+    case "family":  // TODO: get person's family
+   
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -73,9 +73,8 @@ function searchByName(people){
   return foundPerson[0];
 }
 
-function searchByCriteria(){
-    let criteria = promptFor("What Criteria are you searching for?: gender, eyecolor, height, weight, occupation")
-
+function searchByCriteria(people){
+    let criteria = promptFor("What criteria are you searching for?: gender, eyecolor, height, weight, occupation",chars);
    switch (criteria){
         case "gender":
             criteriaFound = searchByGender(people);
@@ -121,7 +120,7 @@ return foundPerson[0];
 }
 
 function searchByEyeColor(people){
-    let eyeColor = promptFor("Please enter hazel, brown black, blue, green for eyecolor: ", chars).toLowerCase;
+    let eyeColor = promptFor("Please enter hazel, brown, black, blue, green for eyecolor: ", chars).toLowerCase;
     let foundPerson = people.filter( person => {
         if (person.eyeColor === eyeColor){
             return true;
@@ -132,7 +131,7 @@ function searchByEyeColor(people){
     return foundPerson[0];
 }
 
-function searchByHeight(){ // get function to work 
+function searchByHeight(people){ // get function to work 
     let height = promptFor ("Please enter the height of the individual you are looking for: ", chars).toLowerCase;
     let foundPerson = people.filter( person => {
         if (person.height === height){
@@ -144,7 +143,7 @@ function searchByHeight(){ // get function to work
     return foundPerson[0];
 }
 
-function searchByWeight(){ // get function to work
+function searchByWeight(people){ // get function to work
     let weight = promptFor ("Please enter the weight of the individual you are looking for: ",chars).toLowerCase
     let foundPerson = people.filter( person => {
         if (person.weight === weight){
@@ -156,7 +155,7 @@ function searchByWeight(){ // get function to work
     return foundPerson[0];
 }
 
-function searchByOccupation(){
+function searchByOccupation(people){
     let occupation = promptFor ("Please enter the individual occupation you are looking for: ", chars).toLowerCase
     let foundPerson = people.filter ( person => { 
         if (person.occupation === occupation){
@@ -187,6 +186,23 @@ function displayPerson(person){
   personInfo += "Occupation: " + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
+}
+function displayFamily(people){ // need parents, siblings, and spouse
+    let parents = searchParents();
+    let siblings = searchSiblings();
+    let spouse = searchSpouse();
+}
+
+function searchParents(people){
+
+}
+
+function searchSiblings(){
+
+}
+
+function searchSpouse(){
+
 }
 
 // function that prompts and validates user input
