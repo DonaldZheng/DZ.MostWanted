@@ -13,7 +13,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits//Criteria 
-      searchResults = searchByTrait(people);
+      searchResults = searchByCriteria(people);
       break;
       default:
     app(people); // restart app
@@ -23,10 +23,6 @@ function app(people){
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   if (searchResults)
   mainMenu(searchResults, people);
-}
-
-function searchByTrait(people){
-    let trait = promptFor("")
 }
 
 // Menu function to call once you find who you are looking for
@@ -74,20 +70,44 @@ function searchByName(people){
     }
   })
   // TODO: find the person using the name they entered
-  return foundPerson;
+  return foundPerson[0];
 }
 
-// //function searchByCriteria(){
-//     let criteria = promptFor("What Criteria are you searching for?: 'gender', 'eyecolor', 'height', 'weight', 'occupation'")
+function searchByCriteria(){
+    let criteria = promptFor("What Criteria are you searching for?: gender, eyecolor, height, weight, occupation")
 
-//     switch (criteria){
-//         case "gender":
-//     }
-// }
+   switch (criteria){
+        case "gender":
+            criteriaFound = searchByGender(people);
+            displayPeople(criteriaFound);
+            break;
+        case "eyecolor":
+            criteriaFound = searchByEyeColor(people);
+            displayPeople(criteriaFound);
+            break;
+        case "height":
+            criteriaFound = searchByHeight(people);
+            displayPeople(criteriaFound);
+            break;
+        case "weight":
+            criteriaFound = searchByWeight(people);
+            displayPeople(criteriaFound);
+            break;
+        case "occupation":
+            criteriaFound =searchByOccupation(people);
+            displayPeople(criteriaFound);
+            break;
+        case "restart":
+        app(people); // restart
+        break;
+        case "quit":
+        return; // stop execution
+    }
+ }
 
 //search by gender
 function searchByGender(people){
-    let gender = promptFor("Please enter 'male' or 'female'", chars).toLowerCase;
+    let gender = promptFor("Please enter male or female", chars).toLowerCase;
     let foundPerson = people.filter(person => {
         if(person.gender === gender){
             return true;
@@ -95,26 +115,34 @@ function searchByGender(people){
         return false;
     }
 })
-return foundPerson;
+return foundPerson[0];
 }
 
 function searchByEyeColor(people){
-    let eyeColor = promptFor("Please enter 'hazel', 'brown' 'black', 'blue', 'green'", chars).toLowerCase;
-    let foundPerson = people.fileter( person => {
+    let eyeColor = promptFor("Please enter hazel, brown black, blue, green", chars).toLowerCase;
+    let foundPerson = people.filter( person => {
         if (person.eyeColor === eyeColor){
             return true;
         } else {
             return false;
         }
     })
-    return foundPerson;
+    return foundPerson[0];
 }
 
-function searchByHeight(){
-
+function searchByHeight(){ // get function to work 
+    let height = promptFor ("Please enter the height", chars).toLowerCase;
+    let foundPerson = people.filter( person => {
+        if (person.height === height){
+            return true;
+        } else {
+            return false;
+        }
+    })
+    return foundPerson[0];
 }
 
-function searchByWeight(){
+function searchByWeight(){ // get function to work
 
 }
 
@@ -134,6 +162,7 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Height: " + person.height + "/n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
