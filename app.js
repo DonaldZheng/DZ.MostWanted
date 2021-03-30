@@ -44,8 +44,8 @@ function mainMenu(person, people){
     case "family":  // TODO: get person's family
    
     break;
-    case "descendants":
-    // TODO: get person's descendants
+    case "descendants": //   // TODO: get person's descendants
+    displayDescendants(person);
     break;
     case "restart":
     app(people); // restart
@@ -197,7 +197,7 @@ let foundDescendants = people.filter(person =>{ // filter by parent's id
     if (
         person.parents[0] === person|| person.parents[1] === person){ 
         return true;
-    }else{
+    } else{
         return false;
     }                                 
 })
