@@ -182,6 +182,7 @@ function displayPerson(person){
   personInfo += "Weight: " + person.weight + "\n";
   personInfo += "Eye Color: " + person.eyeColor + "\n";
   personInfo += "Occupation: " + person.occupation + "\n";
+  personInfo += "Id: " + person.id + "\n";
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }
@@ -193,9 +194,9 @@ function displayFamily(people){ // need parents, siblings, and spouse
 }
 
 function displayDescendants(people, descendants){ // parents' children...use recursion
-let foundDescendants = people.filter(person =>{ // filter by parent's id
+let foundDescendants = people.filter(person => { // filter by parent's id
     if (
-        person.parents[0] == person||person.parents[1] === person){ 
+        person.parents[0] === person.id||person.parents[1] === person.id){ 
         return true;
     } else{
         return false;
