@@ -192,10 +192,10 @@ function displayFamily(people){ // need parents, siblings, and spouse
     let children = displayDescendants();
 }
 
-function displayDescendants(people){ // parents' children...use recursion
+function displayDescendants(people, descendants){ // parents' children...use recursion
 let foundDescendants = people.filter(person =>{ // filter by parent's id
     if (
-        person.parents[0] === person|| person.parents[1] === person){ 
+        person.parents[0] == person||person.parents[1] === person){ 
         return true;
     } else{
         return false;
@@ -203,12 +203,18 @@ let foundDescendants = people.filter(person =>{ // filter by parent's id
 })
 }
 
-function searchParents(people){
-
+function searchParents(people){ //for loops?
+let foundParents = people.filter(person => {
+  if (person.parents === parents){
+    return true;
+  } else {
+    return false;
+  }
+})
 }
 
 function searchSiblings(){
-
+  
 }
 
 function searchSpouse(){
